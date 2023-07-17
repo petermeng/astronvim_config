@@ -20,9 +20,17 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["N"] = { "Nzzzv", desc = "search word down, and cursor in the middle of the screen" },
+    ["n"] = { "nzzzv", desc = "search word up, and cursor in the middle of the screen" },
+    ["<leader>uD"] = { "<cmd>Telescope undo<cr>", desc = "Open undo Tree" },
+    ["<leader>ga"] = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", desc = "Open Lazygit" },
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  v = {
+    ["J"] = { ":m '>+1<CR>gv=gv", desc = "Visual Mode move line up" },
+    ["K"] = { ":m '<-2<CR>gv=gv", desc = "Visual Mode move line down" },
+  }
 }
