@@ -204,4 +204,17 @@ return {
 			require("nvim-autopairs").setup({})
 		end
 	},
+	{
+	  "tpope/vim-surround",
+    event = "User AstroFile",
+	},
+	{
+	  "tpope/vim-repeat",
+    event = "User AstroFile",
+	},
+	{
+	  "glts/vim-radical",
+    event = "User AstroFile",
+    dependencies = "glts/vim-magnum",
+	},
 }
