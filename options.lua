@@ -6,10 +6,10 @@ return {
     number = true, -- sets vim.opt.number
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-    shiftwidth = 2, -- Number of space inserted for indentation
+    shiftwidth = 4, -- Number of space inserted for indentation
     wrap = false, -- sets vim.opt.wrap
-    showtabline = 2, -- always display tabline
-    tabstop = 2, -- Number of space in a tab
+    showtabline = 4, -- always display tabline
+    tabstop = 4, -- Number of space in a tab
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
