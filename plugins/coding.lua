@@ -2,7 +2,6 @@ return {
   {
     "dhananjaylatkar/cscope_maps.nvim",
     lazy =false,
-    db_file = "./.exvim.yosemite/cscope.out",
     dependencies = {
       "folke/which-key.nvim", -- optional [for whichkey hints]
       "nvim-telescope/telescope.nvim", -- optional [for picker="telescope"]
@@ -17,9 +16,6 @@ return {
         picker = "telescope", -- "telescope", "fzf-lua" or "quickfix"
       }
     },
-    config = function()
-			vim.cmd("let tags=\"./.exvim.yosemite/tags\"")
-    end,
   },
   {
     "preservim/tagbar",
