@@ -160,8 +160,14 @@ return {
 			buftypes = {},
 		}
 	},
-	{ 'theniceboy/antovim', lazy = false, },
-	{ 'gcmt/wildfire.vim',  lazy = false, },
+	{
+	  'theniceboy/antovim',
+	  lazy = false,
+	},
+	{
+	  'gcmt/wildfire.vim',
+	  lazy = false,
+	},
 	-- {
  --    "fedepujol/move.nvim",
  --    lazy = false,
@@ -281,4 +287,85 @@ return {
 	  "jesseleite/vim-agriculture",
     event = "User AstroFile",
 	},
+	{
+    "rainbowhxch/accelerated-jk.nvim",
+    lazy = false,
+    enabled = false,
+    config = function()
+      require('accelerated-jk').setup({
+          mode = 'time_driven',
+          enable_deceleration = false,
+          acceleration_motions = {},
+          acceleration_limit = 150,
+          acceleration_table = { 7,12,17,21,24,26,28,30 },
+          -- when 'enable_deceleration = true', 'deceleration_table = { {200, 3}, {300, 7}, {450, 11}, {600, 15}, {750, 21}, {900, 9999} }'
+          deceleration_table = { {150, 9999} }
+      })
+      vim.api.nvim_set_keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+      vim.api.nvim_set_keymap('n', 'k', '<Plug>(accelerated_jk_gk)', {})
+    end
+	},
+	{
+	  "anuvyklack/windows.nvim",
+	  lazy = false,
+        dependencies = {
+          "anuvyklack/middleclass",
+          "anuvyklack/animation.nvim"
+        },
+        config = function()
+          vim.api.nvim_set_keymap('n', '<C-w>z', '<cmd> WindowsMaximize<CR>', { desc = "Max the current Window" })
+          vim.o.winwidth = 10
+          vim.o.winminwidth = 10
+          vim.o.equalalways = false
+          require('windows').setup()
+        end
+  },
+  {
+    'anuvyklack/pretty-fold.nvim',
+    lazy = false,
+    enabled = false,
+    config = function()
+      require('pretty-fold').setup {
+        sections = {
+          left = {
+             '━ ', function() return string.rep('*', vim.v.foldlevel) end, ' ━┫', 'content', '┣'
+          },
+          right = {
+             '┫ ', 'number_of_folded_lines', ': ', 'percentage', ' ┣━━',
+          }
+        },
+
+        fill_char = '━',
+
+        remove_fold_markers = false,
+
+        -- Keep the indentation of the content of the fold string.
+        keep_indentation = true,
+
+        -- Possible values:
+        -- "delete" : Delete all comment signs from the fold string.
+        -- "spaces" : Replace all comment signs with equal number of spaces.
+        -- false    : Do nothing with comment signs.
+        process_comment_signs = 'spaces',
+
+        -- Comment signs additional to the value of `&commentstring` option.
+        comment_signs = {},
+
+        -- List of patterns that will be removed from content foldtext section.
+        stop_words = {
+          '@brief%s*', -- (for C++) Remove '@brief' and all spaces after.
+        },
+
+        add_close_pattern = true, -- true, 'last_line' or false
+
+        matchup_patterns = {
+          {  '{', '}' },
+          { '%(', ')' }, -- % to escape lua pattern char
+          { '%[', ']' }, -- % to escape lua pattern char
+        },
+
+        ft_ignore = { 'neorg' },
+      }
+    end
+  },
 }
