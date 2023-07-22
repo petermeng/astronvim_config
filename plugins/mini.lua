@@ -39,4 +39,10 @@ return {
             require('mini.ai').setup()
         end
     },
+    {
+        'echasnovski/mini.splitjoin',
+        lazy = false,
+        version = false,
+        config = function() require('mini.splitjoin').setup() end
+    },
 }
