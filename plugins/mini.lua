@@ -31,4 +31,12 @@ return {
             require('mini.indentscope').setup()
         end
     },
+    {
+        'echasnovski/mini.ai',
+        lazy = false,
+        version = false,
+        config = function()
+            require('mini.ai').setup()
+        end
+    },
 }
