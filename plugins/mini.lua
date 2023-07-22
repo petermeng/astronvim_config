@@ -2,6 +2,7 @@ return {
     {
         'echasnovski/mini.animate',
         version = false,
+        lazy = false,
         config = function()
             require('mini.animate').setup()
         end
@@ -13,5 +14,21 @@ return {
         config = function()
             require('mini.move').setup()
         end,
+    },
+    {
+        'echasnovski/mini.align',
+        lazy = false,
+        version = false,
+        config = function()
+            require('mini.align').setup()
+        end
+    },
+    {
+        'echasnovski/mini.indentscope',
+        lazy = false,
+        version = false,
+        config = function()
+            require('mini.indentscope').setup()
+        end
     },
 }
