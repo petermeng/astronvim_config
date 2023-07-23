@@ -105,7 +105,7 @@ return {
         end
         return s
       end
-      require("bufferline").setup{}
+      require("bufferline").setup()
     end
   },
   {
@@ -368,4 +368,11 @@ return {
       }
     end
   },
+  {
+    "RaafatTurki/hex.nvim",
+    lazy = false,
+    config = function()
+      require("hex").setup()
+    end
+  }
 }
