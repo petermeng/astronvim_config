@@ -3,7 +3,7 @@ return {
   lazy = false,
   config = function()
     local wilder = require('wilder')
-    wilder.setup({modes = {':', '/', '?'}})
+    wilder.setup({modes = {':', '?'}})
     wilder.set_option('renderer', wilder.popupmenu_renderer(
       wilder.popupmenu_palette_theme({
         -- 'single', 'double', 'rounded' or 'solid'

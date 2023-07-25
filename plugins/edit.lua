@@ -54,6 +54,9 @@ return {
                   desc = 'Create a selection for word under the cursor',
               },
           },
+      config = function()
+        require("multicursors").setup({opts})
+      end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -374,5 +377,12 @@ return {
     config = function()
       require("hex").setup()
     end
-  }
+  },
+  {
+    "cds-amal/hexer-nvim",
+    name = "hexer",
+    lazy = false,
+    config = function()
+    end
+  },
 }
