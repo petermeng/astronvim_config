@@ -19,6 +19,7 @@ return {
   },
   {
       "smoka7/multicursors.nvim",
+      enabled = false,
       event = "VeryLazy",
       dependencies = {
           'smoka7/hydra.nvim',
@@ -385,4 +386,10 @@ return {
     config = function()
     end
   },
+  {
+    "mg979/vim-visual-multi",
+    keys = {
+      "<C-N>",
+    },
+  }
 }
