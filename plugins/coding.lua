@@ -21,4 +21,21 @@ return {
     "preservim/tagbar",
     lazy = false,
   },
+  {
+    'rmagatti/goto-preview',
+    event = "User AstroFile",
+    config = function()
+      require('goto-preview').setup {}
+    end
+  },
+  {
+      "dnlhc/glance.nvim",
+      event = "User AstroFile",
+      enabled = false,
+      config = function()
+        require('glance').setup({
+          -- your configuration
+        })
+      end,
+  },
 }
