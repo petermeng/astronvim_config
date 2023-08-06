@@ -24,6 +24,8 @@ return {
     ["n"] = { "nzzzv", desc = "search word up, and cursor in the middle of the screen" },
     ["<leader>uD"] = { "<cmd>Telescope undo<cr>", desc = "Open undo Tree" },
     ["<leader>ga"] = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", desc = "Open Lazygit" },
+    ["<leader>Ls"] = { "<cmd>lua vim.g.cscope_maps_db_file=\"./.exvim.yproject/cscope.out\"<cr>", desc = "Load Y Cscope" },
+    ["<leader>Lc"] = { "<cmd>set tags=\"./.exvim.yproject/ctags\"<cr>", desc = "Load Y Ctags" },
   },
   t = {
     -- setting a mapping to false will disable it
