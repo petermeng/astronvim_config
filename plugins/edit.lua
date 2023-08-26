@@ -455,4 +455,44 @@ return {
       })
     end
   },
+  {
+    "jackMort/pommodoro-clock.nvim",
+      lazy = false,
+      config = function()
+        require("pommodoro-clock").setup({
+          -- optional configuration
+            modes = {
+              ["work"] = { "POMMODORO", 25 },
+              ["short_break"] = { "SHORT BREAK", 5 },
+              ["long_break"] = { "LONG BREAK", 30 },
+            },
+            animation_duration = 300,
+            animation_fps = 30,
+            say_command = "spd-say -l en -t female3",
+            sound = "voice", -- set to "none" to disable
+        })
+
+        local function pc(func)
+	        return "<Cmd>lua require('pommodoro-clock')." .. func .. "<CR>"
+        end
+
+        local wk_avail, wk = pcall(require, "which-key")
+        if wk_avail then
+          wk.register({
+            ["<Leader>P"] = {
+	            name = "Pommodoro",
+	            w = { pc('start("work")'), "Start Pommodoro" },
+	            s = { pc('start("short_break")'), "Short Break" },
+	            l = { pc('start("long_break")'), "Long Break" },
+	            p = { pc("toggle_pause()"), "Toggle Pause" },
+	            c = { pc("close()"), "Close" },
+            }
+        })
+        end
+      end,
+      requires = {
+        "MunifTanjim/nui.nvim",
+        "folke/which-key.nvim",
+      }
+  },
 }
