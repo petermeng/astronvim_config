@@ -289,7 +289,7 @@ return {
 	},
 	{
 	  "jesseleite/vim-agriculture",
-    event = "User AstroFile",
+      event = "User AstroFile",
 	},
 	{
     "rainbowhxch/accelerated-jk.nvim",
@@ -494,5 +494,14 @@ return {
         "MunifTanjim/nui.nvim",
         "folke/which-key.nvim",
       }
+  },
+  {
+    'edluffy/hologram.nvim',
+    event = "User AstroFile",
+    config = function()
+      require('hologram').setup{
+        auto_display = true -- WIP automatic markdown image display, may be prone to breaking
+      }
+    end
   },
 }

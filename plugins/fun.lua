@@ -54,7 +54,7 @@ return {
 			"<leader>rk"
 		},
 		config = function()
-        	vim.keymap.set('n', '<leader>rd', function() require("duck").hatch("ඞ", 0.75) end, {})
+        	vim.keymap.set('n', '<leader>rd', function() require("duck").hatch("🐈", 0.75) end, {})
         	vim.keymap.set('n', '<leader>rk', function() require("duck").cook() end, {})
 	    end
 	},
