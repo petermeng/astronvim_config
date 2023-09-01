@@ -504,4 +504,42 @@ return {
       }
     end
   },
+  {
+    "monaqa/dial.nvim",
+    event = "User AstroFile",
+    config = function()
+      local augend = require("dial.augend")
+      require("dial.config").augends:register_group{
+        -- default augends used when no group name is specified
+        default = {
+          augend.integer.alias.decimal,   -- nonnegative decimal number (0, 1, 2, 3, ...)
+          augend.integer.alias.hex,       -- nonnegative hex number  (0x01, 0x1a1f, etc.)
+          augend.date.alias["%Y/%m/%d"],  -- date (2022/02/19, etc.)
+        },
+
+        -- augends used when group with name `mygroup` is specified
+        mygroup = {
+          augend.integer.alias.decimal,
+          augend.constant.alias.bool,    -- boolean value (true <-> false)
+          augend.date.alias["%m/%d/%Y"], -- date (02/19/2022, etc.)
+        }
+      }
+      local wk_avail, wk = pcall(require, "which-key")
+      if wk_avail then
+        wk.register({
+          ["<Leader>D"] = {
+	          name = "Dial",
+	          a = { function() require("dial.map").inc_normal() end , "Extract Function", mode = "n" },
+	          x = { function() require("dial.map").dec_normal() end , "Extract Function To File", mode = "n" },
+	          ga = { function() require("dial.map").inc_gnormal() end , "Extract Variable", mode = "n" },
+	          gx= { function() require("dial.map").dec_gnormal() end , "Inline Variable", mode = "n" },
+	          a = { function() require("dial.map").inc_normal() end , "Extract Function", mode = "v" },
+	          x = { function() require("dial.map").dec_normal() end , "Extract Function To File", mode = "v" },
+	          ga = { function() require("dial.map").inc_gnormal() end , "Extract Variable", mode = "v" },
+	          gx= { function() require("dial.map").dec_gnormal() end , "Inline Variable", mode = "v" },
+          }
+      })
+      end
+    end
+  },
 }
