@@ -528,17 +528,18 @@ return {
       if wk_avail then
         wk.register({
           ["<Leader>D"] = {
-	          name = "Dial",
-	          a = { function() require("dial.map").inc_normal() end , "Extract Function", mode = "n" },
-	          x = { function() require("dial.map").dec_normal() end , "Extract Function To File", mode = "n" },
-	          ga = { function() require("dial.map").inc_gnormal() end , "Extract Variable", mode = "n" },
-	          gx= { function() require("dial.map").dec_gnormal() end , "Inline Variable", mode = "n" },
-	          a = { function() require("dial.map").inc_normal() end , "Extract Function", mode = "v" },
-	          x = { function() require("dial.map").dec_normal() end , "Extract Function To File", mode = "v" },
-	          ga = { function() require("dial.map").inc_gnormal() end , "Extract Variable", mode = "v" },
-	          gx= { function() require("dial.map").dec_gnormal() end , "Inline Variable", mode = "v" },
+	          name = "Dial"
           }
       })
+
+      vim.keymap.set("n", "<leader>Da", require("dial.map").inc_normal(), {noremap = true, desc = "Increase"})
+      vim.keymap.set("n", "<leader>Dx", require("dial.map").dec_normal(), {noremap = true, desc = "Descrease"})
+      vim.keymap.set("n", "<leader>Dga", require("dial.map").inc_gnormal(), {noremap = true, desc = "Global increase"})
+      vim.keymap.set("n", "<leader>Dgx", require("dial.map").dec_gnormal(), {noremap = true, desc = "Global descrease"})
+      vim.keymap.set("v", "<leader>Da", require("dial.map").inc_visual(), {noremap = true, desc = "Increase"})
+      vim.keymap.set("v", "<leader>Dx", require("dial.map").dec_visual(), {noremap = true, desc = "Descrease"})
+      vim.keymap.set("v", "<leader>Dga",require("dial.map").inc_gvisual(), {noremap = true, desc = "Global increase"})
+      vim.keymap.set("v", "<leader>Dgx",require("dial.map").dec_gvisual(), {noremap = true, desc = "Global descrease"})
       end
     end
   },
