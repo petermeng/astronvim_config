@@ -497,6 +497,7 @@ return {
   },
   {
     'edluffy/hologram.nvim',
+    enabled = false,
     event = "User AstroFile",
     config = function()
       require('hologram').setup{
