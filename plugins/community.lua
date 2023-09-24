@@ -10,4 +10,5 @@ return {
   { import = "astrocommunity.project.nvim-spectre" },
   { import = "astrocommunity.project.nvim-spectre" },
   { import = "astrocommunity.color.tint-nvim" },
+  { import = "astrocommunity.motion.vim-matchup" },
 }
