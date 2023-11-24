@@ -1,9 +1,14 @@
 return {
 	{
 		"Eandrju/cellular-automaton.nvim",
-		keys = "<leader>rr",
+		enabled = true,
+		keys = {
+			"<leader>rr",
+			"<leader>rg"
+		},
 		config = function()
-			vim.keymap.set("n", "<leader>rr", "<cmd>CellularAutomaton make_it_rain<CR>")
+			vim.keymap.set("n", "<leader>rr", "<cmd>CellularAutomaton make_it_rain<CR>", { noremap=true, desc = "Fun: run raining" })
+			vim.keymap.set("n", "<leader>rg", "<cmd>CellularAutomaton game_of_life<CR>", { noremap=true, desc = "Fun: run game of life" })
 		end,
 	},
 	{
@@ -53,9 +58,41 @@ return {
 			"<leader>rd",
 			"<leader>rk"
 		},
+		ejabled = true,
 		config = function()
-        	vim.keymap.set('n', '<leader>rd', function() require("duck").hatch("🐈", 0.75) end, {})
-        	vim.keymap.set('n', '<leader>rk', function() require("duck").cook() end, {})
+        	vim.keymap.set('n', '<leader>rd', function() require("duck").hatch("🐈", 0.75) end, { noremap=true, desc = "duck enable" })
+        	vim.keymap.set('n', '<leader>rk', function() require("duck").cook() end, { noremap=true, desc = "duck disable" })
 	    end
+	},
+	{
+  	  'alec-gibson/nvim-tetris',
+  	  cmd = "Tetris",
+	},
+	{
+  	  'seandewar/nvimesweeper',
+  	  cmd = "Nvimesweeper",
+	},
+	{
+  	  'seandewar/killersheep.nvim',
+  	  cmd = "KillKillKill",
+  	  config = function()
+  	    require("killersheep").setup {
+          gore = true,           -- Enables/disables blood and gore.
+          keymaps = {
+            move_left = "h",     -- Keymap to move cannon to the left.
+            move_right = "l",    -- Keymap to move cannon to the right.
+            shoot = "<Space>",   -- Keymap to shoot the cannon.
+          },
+        }
+  	  end
+	},
+	{
+  	  'jim-fx/sudoku.nvim',
+  	  cmd = "Sudoku",
+  	  config = function()
+    	require("sudoku").setup({
+      	  -- configuration ...
+    	})
+  	  end
 	},
 }
