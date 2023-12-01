@@ -544,4 +544,15 @@ return {
       end
     end
   },
+  {
+    "lukas-reineke/virt-column.nvim",
+    event = "User AstroFile",
+    config = function()
+      require('virt-column').setup{
+        enabled = true,
+        char = "┃",
+        virtcolumn = "+1,120",
+      }
+    end
+  },
 }

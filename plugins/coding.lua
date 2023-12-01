@@ -13,13 +13,24 @@ return {
       -- DEFAULTS ARE LISTED BELOW
       cscope = {
         -- choose your fav picker
-        picker = "telescope", -- "telescope", "fzf-lua" or "quickfix"
+        picker = "fzf-lua", -- "telescope", "fzf-lua" or "quickfix"
       }
     },
   },
   {
     "preservim/tagbar",
     lazy = false,
+    config = function()
+      local wk_avail, wk = pcall(require, "which-key")
+      if wk_avail then
+        wk.register({
+          ["<leader>T"] = {
+            name = "TagBar",
+            t = { "<cmd>TagbarToggle<CR>", "Tagbar toggle" },
+          }
+        })
+      end
+    end
   },
   {
     'rmagatti/goto-preview',
@@ -218,5 +229,19 @@ return {
       })
       end
     end,
+  },
+  {
+    "daishengdong/calltree.nvim",
+    event = "User AstroFile",
+    dependencies = {
+      "dhananjaylatkar/cscope_maps.nvim",
+      "folke/which-key.nvim", -- optional [for whichkey hints]
+    },
+    opts = {
+      -- USE EMPTY FOR DEFAULT OPTIONS
+      -- DEFAULTS ARE LISTED BELOW
+      prefix = "<leader>O", -- keep consistent with cscope_maps
+      tree_style = "brief", -- alternatives: detailed, detailed_paths
+    },
   },
 }
